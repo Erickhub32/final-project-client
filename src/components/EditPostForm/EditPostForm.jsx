@@ -249,7 +249,7 @@ const EditPostForm = () => {
         <div className="d-grid">
           <Button variant="dark" type="submit" size="sm" onClick={handleEditPostSubmit}>Edit Post</Button>
           <hr></hr>
-          <Button variant="dark" type="submit" size="sm" onClick={handleDeletePost}>Delete Post</Button>
+          <Button variant="danger" type="submit" size="sm" onClick={handleDeletePost}>Delete Post</Button>
 
         </div>
       </Row>

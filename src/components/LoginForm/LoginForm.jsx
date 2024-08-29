@@ -43,7 +43,7 @@ const LoginForm = () => {
           <Form.Control type="password" name="password" value={loginData.password} onChange={handleLoginData} ></Form.Control>
         </Form.Group>
 
-        <Button variant="outline-dark" type="submit" className="w-100">Login</Button>
+        <Button variant="dark" type="submit" className="w-100">Login</Button>
 
       </Form>
     </>

@@ -9,7 +9,7 @@ function CustomMap() {
 
   const [map, setMap] = useState(null)
 
-  const onLoad = (map) => console.log('Aquí haz lo que necesites tras la carga del mapa')
+  const onLoad = (map) => console.log('.')
   const onUnmount = () => setMap(null)
 
   return isLoaded && (

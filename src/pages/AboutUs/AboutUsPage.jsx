@@ -45,7 +45,7 @@ const AboutUsPage = () => {
 
         <Col xs={12} className="d-flex justify-content-center mb-3">
           <Form.Text className="text-center">
-            Encuéntranos en Ironhack: Paseo de la Chopera, 14 <br/> Matadero - Casa del Lector, Nave Ironhack, 28045 Madrid
+            Find us in <strong>Ironhack!</strong>: Paseo de la Chopera, 14 <br /> Matadero - Casa del Lector, Nave Ironhack, 28045 Madrid
           </Form.Text>
         </Col>
 

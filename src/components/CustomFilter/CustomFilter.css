@@ -1,0 +1,8 @@
+@media screen and (min-width: 300px) and (max-width: 500px) {
+  .Search {
+    margin-right: 160px;
+  }
+  .nick{
+    font-size: 0.9em;
+  }
+}

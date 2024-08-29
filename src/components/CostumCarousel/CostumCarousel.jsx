@@ -4,7 +4,7 @@ import { Carousel } from "react-bootstrap"
 const CostumCarousel = ({ images, postId, size }) => {
 
   const customStyle = size === 'LG' ?
-    { objectFit: 'cover', width: '100%', height: '200px' } :
+    { objectFit: 'cover', width: '100%', height: '600px' } :
     { width: '100%', height: '200px' }
 
   return (
@@ -13,7 +13,7 @@ const CostumCarousel = ({ images, postId, size }) => {
         images.map((eachImage, idx) => {
           return (
             <Carousel.Item key={`carousel-item-${postId}-${idx}`}>
-              <div style={{ width: '100%', height: '100%' }}>
+              <div >
                 <img
                   className=".img-fluid. max-width: 100%"
                   src={eachImage}
