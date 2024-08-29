@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Container, Row, Col, FormControl, Form, Button } from "react-bootstrap"
 import postsServices from "../../services/posts.services"
 import PostCard from "../PostCard/PostCard"
+import "./../CustomFilter/CustomFilter.css"
 
 const CategorySearch = () => {
   const [posts, setPosts] = useState([])
@@ -18,7 +19,6 @@ const CategorySearch = () => {
       .getAllPosts()
       .then(({ data }) => {
         setPosts(data)
-        setFilteredPosts(data)
       })
       .catch((err) => console.log(err))
   }
@@ -42,9 +42,9 @@ const CategorySearch = () => {
 
   return (
     <Container>
-      <Row className="mb-3">
-        <Col xs={12} className="d-flex justify-content-center mt-1 mb-4">
-          <Form className="d-flex w-50 justify-content-center">
+      <Row className="mb-3" style={{ marginTop: -95 }}>
+        <Col xs={12} className="d-flex justify-content-center mt-1 mb-4" >
+          <Form className="Search d-flex w-50 justify-content-center" >
             <FormControl
               type="text"
               placeholder="Search categories ..."

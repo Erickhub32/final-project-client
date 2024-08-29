@@ -14,20 +14,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const PostDetailsPage = ({ size }) => {
 
-  const customStyle = size === 'LG' ?
-    {
-      objectFit: 'cover',
-      objectPosition: 'top',
-      width: '100%',
-      height: '800px'
-    }
-    : {
-      objectFit: 'cover',
-      objectPosition: 'top',
-      width: '100%',
-      height: '800px'
-    }
-
+  
   const { postId } = useParams()
   const [post, setPost] = useState({})
   const [commentsData, setCommentData] = useState([])
@@ -64,10 +51,10 @@ const PostDetailsPage = ({ size }) => {
   const getPostDetails = () => {
 
     if (post.images && post.images.length > 1) {
-      return <CostumCarousel images={post.images} style={customStyle} postId={postId} size={'LG'} />
+      return <CostumCarousel images={post.images} postId={postId} size={'LG'}/>
     }
     else if (post.images && post.images.length === 1) {
-      return <img src={post.images} className="img-fluid" style={customStyle} size={'SM'} />
+      return <img src={post.images} className="img-fluid" />
     } else {
       return null
     }

@@ -139,7 +139,7 @@ const SignupForm = () => {
 
         </Row>
         <Button
-          variant="black"
+          variant="dark"
           className="w-100"
           type="submit"
           disabled={loadingImagen}>{loadingImagen ? 'Charging imagen...' : 'Register'}

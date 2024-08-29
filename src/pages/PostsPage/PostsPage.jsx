@@ -4,6 +4,8 @@ import { useContext, useEffect, useState } from "react"
 import { Button, Col, Container, Form, Row } from "react-bootstrap"
 import { AuthContext } from "../../contexts/auth.context"
 import CategorySearch from "../../components/CustomFilter/CustomFilter"
+import { Link } from "react-router-dom"
+import OverlayTooltip from "../../components/OverlayTooltip/OverlayTooltip"
 
 const PostsPage = () => {
 
@@ -25,27 +27,33 @@ const PostsPage = () => {
 
   return (
     <>
-      <Container fluid className="mt-4">
+      <Container className="dffg">
         {loggedUser ? (
           <Row className="align-items-center">
-            <Col xs={12} className="d-flex justify-content-end">
-              <span className="d-flex align-items-center">
-                <img
-                  src={loggedUser.avatar}
-                  style={{
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '50%',
-                    objectFit: 'cover',
-                    marginRight: '10px',
-                  }}
-                />
-                <strong className="mt-2">@{loggedUser.nick}</strong>
-              </span>
+
+            <Col xs={12} className="d-flex justify-content-end mb-5" style={{ flexDirection: 'row'}}>
+              <OverlayTooltip tooltipText={'Go to profile page'} id={'user-tooltip'} placement={'bottom'}>
+                <Link to={'/profile'} style={{ color: '#000', textDecoration: 'none', zIndex:9999 }}>
+                  <span className="d-flex align-items-center">
+                    <img
+                      src={loggedUser.avatar}
+                      style={{
+                        width: '40px',
+                        height: '40px',
+                        borderRadius: '50%',
+                        objectFit: 'cover',
+                        marginRight: '10px',
+                      }}
+                    />
+                    <strong className="nick ">@{loggedUser.nick}</strong>
+                  </span>
+                </Link>
+              </OverlayTooltip>
             </Col>
-            <Col xs={12} className="d-flex justify-content-center mt-1 mb-4">
+            <Col xs={12} className="d-flex justify-content-center mt-1 mb-4" >
               <CategorySearch />
             </Col>
+
           </Row>
         ) : null}
 
