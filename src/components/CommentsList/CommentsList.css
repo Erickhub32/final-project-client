@@ -1,0 +1,11 @@
+.editbtn {
+  padding: 5px;
+  border: none;
+  background-color: transparent;
+
+}
+
+.editbtn .svg-inline--fa {
+  font-size: 18px;
+
+}

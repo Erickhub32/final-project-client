@@ -1,0 +1,11 @@
+.Navigation a,
+.Navigation a:hover,
+.Navigation a:visited,
+.Navigation a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.Hamburger {
+  z-index: 999;
+}

@@ -1,0 +1,5 @@
+.Imagencard {
+  object-fit: cover;
+  height: 150px;
+  width: 100%;
+}
