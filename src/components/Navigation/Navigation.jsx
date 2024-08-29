@@ -26,7 +26,7 @@ const Navigation = () => {
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>
             <OverlayTooltip tooltipText={'Go to posts page'} id={'user-tooltip'} placement={'bottom'}>
-              <Link to="/" style={{ color: '#000', textDecoration: 'none' }}>
+              <Link to="/" style={{ color: '#000', textDecoration: 'none' }} onClick={handleClose}>
                 Meetspot
               </Link>
             </OverlayTooltip>
@@ -34,17 +34,17 @@ const Navigation = () => {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <Nav className="flex-column">
-            <Nav.Link as={Link} to={'/aboutus'} style={{ color: '#000' }}><i className="bi bi-people"></i> About Us</Nav.Link>
+            <Nav.Link as={Link} to={'/aboutus'} style={{ color: '#000' }} onClick={handleClose}><i className="bi bi-people" ></i> About Us</Nav.Link>
 
             {loggedUser ? (
               <>
-                <Nav.Link as={Link} to={'/create-post'} style={{ color: '#000' }}><i className="bi bi-plus-square"></i> New Post</Nav.Link>
-                <Nav.Link as={Link} onClick={logoutUser} to={'/'} style={{ color: '#000' }}><i className="bi bi-box-arrow-in-left"></i> Logout</Nav.Link>
+                <Nav.Link as={Link} to={'/create-post'} style={{ color: '#000' }} onClick={handleClose}><i className="bi bi-plus-square"></i> New Post</Nav.Link>
+                <Nav.Link as={Link} onClick={() => { handleClose(), logoutUser() }} to={'/'} style={{ color: '#000' }}><i className="bi bi-box-arrow-in-left" ></i> Logout</Nav.Link>
               </>
             ) : (
               <>
-                <Nav.Link as={Link} to={'/signup'} style={{ color: '#000' }}><i className="bi bi-file-earmark-person"></i> Signup</Nav.Link>
-                <Nav.Link as={Link} to={'/login'} style={{ color: '#000' }}><i className="bi bi-box-arrow-in-right"></i> Login</Nav.Link>
+                <Nav.Link as={Link} to={'/signup'} style={{ color: '#000' }} onClick={handleClose}><i className="bi bi-file-earmark-person"></i> Signup</Nav.Link>
+                <Nav.Link as={Link} to={'/login'} style={{ color: '#000' }} onClick={handleClose}><i className="bi bi-box-arrow-in-right"></i> Login</Nav.Link>
               </>
             )}
           </Nav>
@@ -53,7 +53,7 @@ const Navigation = () => {
             <div className="mt-auto">
 
               <OverlayTooltip tooltipText={'Go to profile page'} id={'user-tooltip'} placement={'bottom'}>
-                <Link as={Link} to={'/profile'} style={{ color: '#000', textDecoration: 'none' }} >
+                <Link as={Link} to={'/profile'} style={{ color: '#000', textDecoration: 'none' }} onClick={handleClose} >
                   <div className="d-flex align-items-center" style={{ color: '#000' }}>
                     <img src={loggedUser.avatar} alt={loggedUser.nick} style={{
                       width: '40px',
@@ -77,64 +77,3 @@ const Navigation = () => {
 }
 
 export default Navigation
-
-// < Navbar expand = "lg" className = "bg-body-tertiary Navigation" >
-//   <Container fluid>
-
-//     <Navbar.Brand as={Link} to={"/"} className="align-self-start"><strong>Meetspot</strong></Navbar.Brand>
-//     <div className="d-flex flex-column flex-md-row justify-content-end align-items-center">
-//       <div className="d-flex align-items-center order-md-1">
-
-//         {
-//           loggedUser && (
-//             <OverlayTooltip tooltipText={'Go to profile page'} id={'user-tooltip'} placement={'bottom'}>
-//               <Link to={'/profile'} className="user d-flex aligm-items-center me-2 me-md-0">
-//                 <img src={loggedUser.avatar} alt={loggedUser.nick} className="me-2" style={{
-//                   width: '40px',
-//                   height: '40px',
-//                   borderRadius: '50%',
-//                   objectFit: 'cover',
-//                   marginRight: '10px'
-//                 }} />
-//                 <strong>@{loggedUser.nick}</strong>
-//               </Link>
-//             </OverlayTooltip>
-//           )
-//         }
-
-//         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-
-//       </div>
-
-//       <Navbar.Collapse id="basic-navbar-nav">
-//         <Nav className="me-3">
-//           <Nav.Link as={Link} to={'/aboutus'}>About us</Nav.Link>
-//         </Nav>
-
-//         {
-//           loggedUser
-//             ?
-//             <>
-//               <Nav className="me-3">
-//                 <Nav.Link as={Link} to={'/create-post'}>New Post</Nav.Link>
-//               </Nav>
-//               <Nav className="me-3">
-//                 <Nav.Link as={Link} onClick={logoutUser} to={'/'}>Logout</Nav.Link>
-//               </Nav>
-//             </>
-//             :
-//             <>
-//               <Nav className="me-3">
-//                 <Nav.Link as={Link} to={'/signup'}>Signup</Nav.Link>
-//               </Nav>
-//               <Nav>
-//                 <Nav.Link as={Link} to={'/login'}>Login</Nav.Link>
-//               </Nav>
-//             </>
-//         }
-//       </Navbar.Collapse>
-
-//     </div>
-
-//   </Container>
-//   </Navbar >

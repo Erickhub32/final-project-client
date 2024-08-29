@@ -78,7 +78,7 @@ const SignupForm = () => {
 
     <Form onSubmit={handleFormSubmit} className="SignupForm">
       <div className="text-center mb-4">
-        <h1>Signup</h1>
+        <h1>Sign Up</h1>
       </div>
       <hr />
       <Container fluid>
@@ -86,7 +86,7 @@ const SignupForm = () => {
           <Col md={6}>
             <Form.Group>
               <Form.Label>Username:<sup>*</sup></Form.Label>
-              <Form.Control type="text" value={signupData.nick} name="nick" onChange={handleInputChange} required></Form.Control>
+              <Form.Control placeholder='Max 8 characters' type="text" value={signupData.nick} name="nick" onChange={handleInputChange} required></Form.Control>
             </Form.Group>
           </Col>
 
@@ -120,7 +120,7 @@ const SignupForm = () => {
 
           <Col md={4}>
             <Form.Group className="mb-3" controlId="image">
-              <Form.Label>Imagen (URL)</Form.Label>
+              <Form.Label>Imagen (URL)<sup>*</sup></Form.Label>
               <Form.Control type="file" onChange={handleFileUpload} />
             </Form.Group>
           </Col>
