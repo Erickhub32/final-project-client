@@ -14,7 +14,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 
 const PostDetailsPage = ({ size }) => {
 
-  
+
   const { postId } = useParams()
   const [post, setPost] = useState({})
   const [commentsData, setCommentData] = useState([])
@@ -51,7 +51,7 @@ const PostDetailsPage = ({ size }) => {
   const getPostDetails = () => {
 
     if (post.images && post.images.length > 1) {
-      return <CostumCarousel images={post.images} postId={postId} size={'LG'}/>
+      return <CostumCarousel images={post.images} postId={postId} size={'LG'} />
     }
     else if (post.images && post.images.length === 1) {
       return <img src={post.images} className="img-fluid" />
@@ -99,8 +99,8 @@ const PostDetailsPage = ({ size }) => {
             </Card.Body>
 
             <Card.Footer className="bg-light">
-              <CommentsList />
-              <CreateCommentForm />
+              <CommentsList commentsData={commentsData} loadCommentsDetails={loadCommentsDetails} />
+              <CreateCommentForm loadCommentsDetails={loadCommentsDetails} />
             </Card.Footer>
           </Card>
         </Col>

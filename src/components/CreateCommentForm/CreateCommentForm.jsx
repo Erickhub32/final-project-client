@@ -3,9 +3,8 @@ import { useEffect, useState } from "react"
 import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { Button, FloatingLabel, Form } from "react-bootstrap"
 
-const CreateCommentForm = () => {
+const CreateCommentForm = ({ loadCommentsDetails }) => {
 
-  const navigate = useNavigate()
   const { postId } = useParams()
 
   const [commentData, setCommentData] = useState({
@@ -32,9 +31,7 @@ const CreateCommentForm = () => {
 
         setCommentData({ text: '' })
 
-        navigate(`/post/${postId}#comment-${commentId}`)
-
-        window.location.reload()
+        loadCommentsDetails()
       })
       .catch(err => console.log(err))
   }

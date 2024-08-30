@@ -9,26 +9,14 @@ import LikeCommentButton from '../LikeCommentButton/LikeCommentButtton'
 import { AuthContext } from '../../contexts/auth.context'
 
 
-const CommentsList = () => {
+const CommentsList = ({ commentsData, loadCommentsDetails }) => {
 
-  const [commentsData, setCommentsData] = useState([])
   const [showModal, setShowModal] = useState(false)
   const [currentComment, setCurrentComment] = useState([])
   const { loggedUser } = useContext(AuthContext)
 
   const { postId } = useParams()
 
-  const fetchComments = () => {
-
-    commentsServices
-      .getCommentsByPost(postId)
-      .then(({ data }) => setCommentsData(data))
-      .catch(err => console.log(err))
-  }
-
-  useEffect(() => {
-    fetchComments()
-  }, [])
 
 
   return (
@@ -43,18 +31,16 @@ const CommentsList = () => {
                   <Col>
                     <div className="d-flex justify-content-between align-items-center">
                       <div className="fw-bold">
-                        {elm.owner.nick}
+                        {elm.owner?.nick}
                       </div>
                       {
-                        elm.owner?._id === loggedUser?._id ?
-                          <Button className='editbtn' variant='white' onClick={() => {
-                            setCurrentComment(elm);
-                            setShowModal(true);
-                          }}>
-                            <ThreeDotsVertical />
-                          </Button>
-                          :
-                          null
+                        elm.owner == loggedUser._id &&
+                        <Button className='editbtn' variant='white' onClick={() => {
+                          setCurrentComment(elm);
+                          setShowModal(true);
+                        }}>
+                          <ThreeDotsVertical />
+                        </Button>
                       }
                     </div>
                   </Col>
@@ -64,7 +50,7 @@ const CommentsList = () => {
                     <div className="d-flex justify-content-between align-items-center">
                       {elm.text}
 
-                      <LikeCommentButton fetchComments={fetchComments} {...elm} postId={postId} />
+                      <LikeCommentButton fetchComments={loadCommentsDetails} {...elm} postId={postId} />
 
                     </div>
                   </Col>
@@ -75,7 +61,7 @@ const CommentsList = () => {
                     <Modal.Title>Edit comment</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-                    <EditCommentForm fetchComments={fetchComments} setShowModal={setShowModal} currentComment={currentComment} setCurrentComment={setCurrentComment} />
+                    <EditCommentForm fetchComments={loadCommentsDetails} setShowModal={setShowModal} currentComment={currentComment} setCurrentComment={setCurrentComment} />
                   </Modal.Body>
                 </Modal>
               </div>
