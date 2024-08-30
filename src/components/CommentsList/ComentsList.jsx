@@ -17,6 +17,7 @@ const CommentsList = ({ commentsData, loadCommentsDetails }) => {
 
   const { postId } = useParams()
 
+  console.log(commentsData)
 
 
   return (

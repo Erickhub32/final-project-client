@@ -61,6 +61,7 @@ const PostDetailsPage = ({ size }) => {
 
   }
 
+
   return (
 
     <Container className="pt-0">
